@@ -1,10 +1,11 @@
 body {
   margin: auto;
   background-color: rgb(164, 200, 202);
+  padding-bottom: 60px;
 }
 
-.box1 {
-  margin: 10px;
+.logo {
+  margin: 50px;
 }
 
 .menu-bar-bottom {
@@ -20,11 +21,6 @@ body {
   left: 5px;
   text-align: center;
   margin-top: 16px;
-}
-
-.box12 {
-  position: relative;
-  right: 5px;
 }
 
 .bottom-links {
