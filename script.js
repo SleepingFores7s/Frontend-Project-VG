@@ -1,24 +1,24 @@
 fetch('https://fakestoreapi.com/products')
   .then(response => response.json())
-  .then(data => {
-    console.log(data); 
-  })
-  .catch(error => {
-    console.error('Något gick fel:', error);
-  });
+  .then(products => {
+    console.log(products); 
+    const container = document.getElementById('products');
 
-  fetch('https://fakestoreapi.com/products')
-  .then(response => response.json())
-  .then(produkter => {
-    const container = document.getElementById('produkter');
-
-    produkter.forEach(produkt => {
+    products.forEach(product => {
       const div = document.createElement('div');
       div.innerHTML = `
-        <h2>${produkt.title}</h2>
-        <img src="${produkt.image}" width="100">
-        <p>${produkt.price} USD</p>
+        <h2>${product.title}</h2>
+        <img src="${product.image}" width="100">
+        <p>${product.price} USD</p>
+        <button onclick="orderProduct(${product.id})">Order</button>
       `;
       container.appendChild(div);
     });
+  })
+  .catch(error => {
+    console.error('Something went wrong:', error);
   });
+
+function orderProduct(id) {
+  alert(`You ordered product with id: ${id}`);
+}
