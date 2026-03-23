@@ -11,6 +11,7 @@ fetch('https://fakestoreapi.com/products')
         <img src="${product.image}" width="100">
         <p>${product.price} USD</p>
         <button onclick="orderProduct(${product.id})">Order</button>
+
       `;
       container.appendChild(div);
     });

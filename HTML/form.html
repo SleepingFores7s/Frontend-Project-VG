@@ -1,24 +1,81 @@
 <!doctype html>
-<html lang="sv">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../style.css" />
+
+    <link rel="stylesheet" href="../bootstrap.css" />
     <title>Order Form</title>
   </head>
+
   <body>
-    <h1>Formulär</h1>
-    <form>
-      <label for="name">Namn</label><br />
-      <input type="text" /><br />
-      <label for="telefon">Telefon</label><br />
-      <input type="tel" /><br />
-      <label for="email">E-post</label><br />
-      <input type="email" /><br />
-      <label for="meddelande">Leveransadress</label><br />
-      <textarea name="meddelande" rows="5" cols="30"></textarea><br />
-    </form>
-     <!-- Menu Bar Bottom -->
+    <h1 class="form text-primary">Form</h1>
+    <div class="container">
+      <form novalidate>
+
+      
+        <!-- Name -->
+        <div class="form-floating">
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            placeholder="Firstname Lastname"
+            required
+          />
+          <label for="name" class="form-label">Name</label>
+          <div class="invalid-feedback">Invalid</div>
+          <div class="valid-feedback">Valid</div>
+        </div>
+        
+        <!-- telephone -->
+        <div class="form-floating">
+          <input
+            type="tel"
+            id="tel"
+            class="form-control"
+            placeholder="xxx-xxxxxxx"
+            required
+          />
+          <label for="telefon" class="form-label">Phone number</label>
+          <div class="invalid-feedback">Invalid tel</div>
+          <div class="valid-feedback">Valid tel</div>
+        </div>
+
+
+        <!-- Email -->
+        <div class="form-floating">
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            placeholder="email"
+            required
+          >
+          <label for="email" class="form-label">Email</label>
+          <div class="invalid-feedback">Invalid email</div>
+          <div class="valid-feedback">Valid email</div>
+        </div>
+
+        <!-- address -->
+        <div class="form-floating">
+          <textarea
+            name="meddelande"
+            rows="5"
+            class="form-control"
+            cols="30"
+            placeholder="Adress"
+            required
+          ></textarea>
+          <label for="meddelande" class="form-label">Leveransadress</label>
+        </div>
+
+        <button>Submit</button>
+      </form>
+    </div>
+
+
+    <!-- Menu Bar Bottom -->
     <div class="menu-bar-bottom">
       <div class="menu-bar-bottom-sub-box">
         <a class="bottom-links" href="index.html">Start page</a>
