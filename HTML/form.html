@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="stylesheet" href="../bootstrap.css" />
+    <link rel="stylesheet" href="../styles/bootstrap.css" />
     <title>Order Form</title>
   </head>
 
   <body>
-    <h1 class="form text-primary">Form</h1>
+    <h1 class="form text-primary text-center">Order</h1>
     <div class="container">
       <form novalidate>
 
@@ -60,14 +59,14 @@
         <!-- address -->
         <div class="form-floating">
           <textarea
-            name="meddelande"
+            name="message"
             rows="5"
             class="form-control"
             cols="30"
             placeholder="Adress"
             required
           ></textarea>
-          <label for="meddelande" class="form-label">Leveransadress</label>
+          <label for="message" class="form-label">Delivery adress</label>
         </div>
 
         <button>Submit</button>
@@ -76,6 +75,8 @@
 
 
     <!-- Menu Bar Bottom -->
+    <!-- infoga footer.html på något sätt -->
+
     <div class="menu-bar-bottom">
       <div class="menu-bar-bottom-sub-box">
         <a class="bottom-links" href="index.html">Start page</a>
@@ -83,5 +84,7 @@
         <a class="bottom-links" href="form.html">Order</a>
       </div>
     </div>
+
+    
   </body>
 </html>

@@ -1,43 +1,75 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <link rel="stylesheet" href="../style.css">
-     <link rel="stylesheet" href="../bootsstrap.css" />
-    <title>Waveshop</title>
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles/bootstrap.css" />
+  <title>Waveshop</title>
+</head>
 
-    <div class="container">
-      <div class="row"></div>
-      <div><i class="col">
-        <div class="logo">
-          <img src="../Logo/waveshop_logo.svg" alt="Waveshop Logo" width="300" height="100"/>
-          <h1 style ="text-align: center;">Waveshop</h1>
-          <h2 style ="text-align: center;">Welcome to Waveshop</h2>
+<body>
+  <div class="card w-auto mb-3 bg-info  card-border-none">
+    <div class="card-body">
+      <img src="../images/waveshop_logo.svg" alt="Waveshop Logo" preserveAspectRatio="xMidYMid slice" width="30%" />
+      <h1 class="card-title text-center">Waveshop</h1>
+      <h2 class="card-subtitle text-center">Welcome to Waveshop</h2>
+       <div class="container mt-4">   
+      <div class="card bg-info  mb-3">
+        <div id = "products" class = "row row-cols-1 row-cols-md-3"></div>      
+        </div>
+  </div>  
+    </div>
+  </div>
+
+  
+    
+
+
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card bg-light  mb-3">
+          <img src="../images/waveshop_logo.svg" alt="Waveshop Logo" preserveAspectRatio="xMidYMid slice" width="30%"  />
+          <div class="card-body">
+            <h1 class="card-title text-center">Waveshop</h1>
+            <h2 class="card-subtitle text-center">Welcome to Waveshop</h2>
+          </div>
         </div>
       </div>
-    </div>
+  </div>
 
-
-  <!--  <div class="logo">
-      <img src="../Logo/waveshop_logo.svg" alt="Waveshop Logo" width="300" height="100"/>
-    <h1 style ="text-align: center;">Waveshop</h1>
-    <h2 style ="text-align: center;">Welcome to Waveshop</h2>
-    </div>
-  -->
-    <div id="products" class="products"></div>
-
-    <div class="menu-bar-bottom">
-      <div class="menu-bar-bottom-sub-box">
-        <a class="bottom-links" href="index.html">Start page</a>
-        <a class="bottom-links" href="about-us.html">About us</a>
-        <a class="bottom-links" href="form.html">Order</a>
+  <div class="card">
+    <div class="col">
+      <div class="card-body text-center  text-bg-warning">
+          Warning: This website is under construction. Some features may not work as expected.
       </div>
     </div>
+  </div>
+</div>
 
-  <script src="../script.js"></script>
-  </body>
+
+
+  
+
+ 
+<div><p>produkter här under </p></div>
+
+   
+    
+  
+  
+  <!-- infoga footer.html på något sätt -->
+  <div class="menu-bar-bottom">
+    <div class="menu-bar-bottom-sub-box">
+      <a class="bottom-links" href="index.html">Start page</a>
+      <a class="bottom-links" href="about-us.html">About us</a>
+      <a class="bottom-links" href="form.html">Order</a>
+    </div>
+  </div>
+  <script src="../scripts/script.js"></script>
+</body>
 </html>
