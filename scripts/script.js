@@ -1,3 +1,4 @@
+
 fetch("https://fakestoreapi.com/products")
   .then((response) => response.json())
   .then((products) => {
@@ -8,7 +9,7 @@ fetch("https://fakestoreapi.com/products")
       const div = document.createElement("div");
       div.className = "col";
       div.innerHTML = `
-       <div class="card h-100 text-center bg-info">
+       <div class="card h-100 text-center bg-">
        <img src="${product.image}" class="card-img-top p-3 product-img"  style="height: 200px; object-fit: contain;
        transition: transform 0.3s;">
        <div class="card-body d-flex flex-column"> 
@@ -34,11 +35,11 @@ fetch("https://fakestoreapi.com/products")
       const orderButton = div.querySelector(".order-button");
       orderButton.addEventListener("mouseover", () => {
         orderButton.style.backgroundColor = "#0056b3";
-        orderButton.transform = "scale(1.05)";
+        orderButton.style.transform = "scale(1.05)";
       });
       orderButton.addEventListener("mouseout", () => {
         orderButton.style.backgroundColor = "#007bff";
-        orderButton.transform = "scale(1)";
+        orderButton.style.transform = "scale(1)";
       });
       container.appendChild(div);
     });
