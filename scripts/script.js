@@ -9,7 +9,7 @@ fetch("https://fakestoreapi.com/products")
       const div = document.createElement("div");
       div.className = "col";
       div.innerHTML = `
-       <div class="card h-100 text-center bg-">
+       <div class="card h-100 text-center bg-light">
        <img src="${product.image}" class="card-img-top p-3 product-img"  style="height: 200px; object-fit: contain;
        transition: transform 0.3s;">
        <div class="card-body d-flex flex-column"> 
@@ -41,6 +41,15 @@ fetch("https://fakestoreapi.com/products")
         orderButton.style.backgroundColor = "#007bff";
         orderButton.style.transform = "scale(1)";
       });
+
+      orderButton.addEventListener("click", () => {
+        window.location.href = `html/order-form.html`;
+      //Pass the product id to the order form page
+        localStorage.setItem("selectedProductId", product.id);
+        localStorage.setItem("selectedProductName", product.title);
+        
+      });
+
       container.appendChild(div);
     });
   })
@@ -52,12 +61,13 @@ function orderProduct(id) {
   alert(`You ordered product with id: ${id}`);
 }
 
+
 function formValidation() {
   const form = document.querySelector("form");
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-
+    
     const name = document.querySelector("#name");
     const email = document.querySelector("#email");
     const tel = document.querySelector("#tel");
@@ -65,13 +75,17 @@ function formValidation() {
     const postalCode = document.querySelector("#postal-code");
     const city = document.querySelector("#city");
 
+  let isValid = true; // Assume form is valid until proven otherwise
+
     // Name validation
     if (name.value.length < 2 || name.value.length > 50) {
       name.classList.add("is-invalid");
       name.classList.remove("is-valid");
+      isValid = false;
     } else {
       name.classList.add("is-valid");
       name.classList.remove("is-invalid");
+      
     }
 
     // Email validation
@@ -82,9 +96,11 @@ function formValidation() {
     ) {
       email.classList.add("is-invalid");
       email.classList.remove("is-valid");
+    isValid = false;
     } else {
       email.classList.add("is-valid");
       email.classList.remove("is-invalid");
+    
     }
 
     // Telephone validation
@@ -92,9 +108,11 @@ function formValidation() {
     if (!telRegex.test(tel.value)) {
       tel.classList.add("is-invalid");
       tel.classList.remove("is-valid");
+      isValid = false;
     } else {
       tel.classList.add("is-valid");
       tel.classList.remove("is-invalid");
+      
     }
 
     // Street address validation
@@ -105,9 +123,11 @@ function formValidation() {
     ) {
       streetAddress.classList.add("is-invalid");
       streetAddress.classList.remove("is-valid");
+      isValid = false;
     } else {
       streetAddress.classList.add("is-valid");
       streetAddress.classList.remove("is-invalid");
+      
     }
 
     // Postal code validation
@@ -115,20 +135,49 @@ function formValidation() {
     if (!postalCodeRegex.test(postalCode.value)) {
       postalCode.classList.add("is-invalid");
       postalCode.classList.remove("is-valid");
+      isValid = false;
     } else {
       postalCode.classList.add("is-valid");
       postalCode.classList.remove("is-invalid");
+
     }
 
     // City validation
     if (city.value.length < 2 || city.value.length > 20) {
       city.classList.add("is-invalid");
       city.classList.remove("is-valid");
+      isValid = false;
     } else {
       city.classList.add("is-valid");
       city.classList.remove("is-invalid");
+      
     }
-  });
+    
+    if (isValid) {
+      alert("Your order has been placed successfully! "
+      + "\nProduct: " + savedProductName.value
+      + "\nName: " + name.value
+      + "\nEmail: " + email.value
+      + "\nTelephone: " + tel.value 
+      + "\nStreet Address: " + streetAddress.value
+      + "\nPostal Code: " + postalCode.value
+      + "\nCity: " + city.value);
+      form.reset();
+    }
+    if (!isValid) {
+      alert("Please correct the errors in the form before submitting.");
+    }
+
+  }); 
 }
 
 formValidation();
+
+const savedProductId = localStorage.getItem("selectedProductId");
+if (savedProductId) {
+  document.getElementById("product").value = savedProductId;
+}
+const savedProductName = localStorage.getItem("selectedProductName");
+if (savedProductName) {
+  document.getElementById("product-name").textContent = savedProductName;
+}
