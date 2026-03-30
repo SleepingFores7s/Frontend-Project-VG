@@ -43,6 +43,22 @@ iii.  Ort: Min 2 tecken och Max 20 tecken
 
     <div class="container p-3">
       <form novalidate>
+         <!-- Product -->
+           <!-- Produkt: Fylls i automatiskt med det valda objektet från katalogen. -->
+        <div class="form-floating m-3">
+          <input
+            type="text"
+            id="product"
+            class="form-control"
+            placeholder="item"
+            required
+            readonly
+          />
+          <label for="product" class="form-label">Product</label>
+          <div class="invalid-feedback">Invalid</div>
+          <div class="valid-feedback">Valid</div>
+        </div>
+
         <!-- Name -->
         <!--Namnet är minst 2 tecken och max 50 tecken -->
         <div class="form-floating m-3">
@@ -138,6 +154,8 @@ iii.  Ort: Min 2 tecken och Max 20 tecken
         </div>
       </form>
     </div>
+    
+    
 
     <script src="../scripts/script.js"></script>
 
