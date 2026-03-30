@@ -1,7 +1,7 @@
 const menuItems = [
-  { name: "Start Page", url: "/Frontend-Projektarbete-G-niva/index.html" },
-  { name: "Order", url: "/Frontend-Projektarbete-G-niva/html/order-form.html" },
-  { name: "About Us", url: "/Frontend-Projektarbete-G-niva/html/about-us.html" },
+  { name: "Start Page", url: "index.html" },
+  { name: "Order", url: "html/order-form.html" },
+  { name: "About Us", url: "html/about-us.html" },
 ];
 
 const div = document.createElement("div");
