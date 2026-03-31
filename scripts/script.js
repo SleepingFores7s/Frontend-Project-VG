@@ -155,7 +155,7 @@ function formValidation() {
     
     if (isValid) {
       alert("Your order has been placed successfully! "
-      + "\nProduct: " + savedProductName.value
+      + "\nProduct: " + savedProductName
       + "\nName: " + name.value
       + "\nEmail: " + email.value
       + "\nTelephone: " + tel.value 
