@@ -42,7 +42,7 @@ fetch("https://api.escuelajs.co/api/v1/products")
       });
 
       orderButton.addEventListener("click", () => {
-        window.location.href = `html/order-form.html`;
+        window.location.href = `HTML/order-form.html`;
         //Pass the product id to the order form page
         localStorage.setItem("selectedProductId", product.id);
         localStorage.setItem("selectedProductName", product.title);
