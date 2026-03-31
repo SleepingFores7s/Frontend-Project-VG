@@ -170,6 +170,4 @@ if (savedProductName) {
   document.getElementById("product-name").textContent = savedProductName;
 }
 
-if (document.querySelector("form")) {
-  formValidation();
-}
+formValidation();
