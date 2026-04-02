@@ -50,7 +50,7 @@ fetch('https://dummyjson.com/products?limit=21')
         localStorage.setItem("selectedProductId", product.id);
         localStorage.setItem("selectedProductName", product.title);
 
-        window.location.href = `HTML/order-form.html`;
+        window.location.href = `html/order-form.html`;
       });
 
       container.appendChild(div);
