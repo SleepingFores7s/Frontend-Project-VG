@@ -14,7 +14,7 @@ function formValidation() {
     let isValid = true; // Assume form is valid until proven otherwise
 
     // Name validation
-    if (name.value.length < 2 || name.value.length > 50) {
+    if (name.value.trim().length < 2 || name.value.trim().length > 50) {
       name.classList.add("is-invalid");
       name.classList.remove("is-valid");
       isValid = false;
@@ -25,9 +25,9 @@ function formValidation() {
 
     // Email validation
     if (
-      !email.value.includes("@") ||
-      email.value.length > 50 ||
-      email.value.length === 0
+      !email.value.trim().includes("@") ||
+      email.value.trim().length > 50 ||
+      email.value.trim().length === 0
     ) {
       email.classList.add("is-invalid");
       email.classList.remove("is-valid");
@@ -50,9 +50,9 @@ function formValidation() {
 
     // Street address validation
     if (
-      streetAddress.value.length < 2 ||
-      streetAddress.value.length > 50 ||
-      streetAddress.value.length === 0
+      streetAddress.value.trim().length < 2 ||
+      streetAddress.value.trim().length > 50 ||
+      streetAddress.value.trim().length === 0
     ) {
       streetAddress.classList.add("is-invalid");
       streetAddress.classList.remove("is-valid");
@@ -74,7 +74,7 @@ function formValidation() {
     }
 
     // City validation
-    if (city.value.length < 2 || city.value.length > 20) {
+    if (city.value.trim().length < 2 || city.value.trim().length > 20) {
       city.classList.add("is-invalid");
       city.classList.remove("is-valid");
       isValid = false;
