@@ -38,7 +38,7 @@ iii.  Ort: Min 2 tecken och Max 20 tecken
       <form novalidate>
         <!-- Product -->
         <!-- Produkt: Fylls i automatiskt med det valda objektet från katalogen. -->
-        <p id="product-name" class="ms-3"></p>
+      <!--   <p id="product-name" class="ms-3"></p>-->
         <div class="form-floating m-3">
           <input
             type="text"
@@ -148,86 +148,6 @@ iii.  Ort: Min 2 tecken och Max 20 tecken
         </div>
       </form>
     </div>
-
-    <!--
-    <script>
-      const form = document.querySelector("form");
-
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const name = document.querySelector("#name");
-        const email = document.querySelector("#email");
-        const tel = document.querySelector("#tel");
-        const streetAddress = document.querySelector("#street-address");
-        const postalCode = document.querySelector("#postal-code");
-        const city = document.querySelector("#city");
-
-        // Name validation
-        if (name.value.length < 2 || name.value.length > 50) {
-          name.classList.add("is-invalid");
-          name.classList.remove("is-valid");
-        } else {
-          name.classList.add("is-valid");
-          name.classList.remove("is-invalid");
-        }
-
-        // Email validation
-        if (
-          !email.value.includes("@") ||
-          email.value.length > 50 ||
-          email.value.length === 0
-        ) {
-          email.classList.add("is-invalid");
-          email.classList.remove("is-valid");
-        } else {
-          email.classList.add("is-valid");
-          email.classList.remove("is-invalid");
-        }
-
-        // Telephone validation
-        const telRegex = /^[0-9\-\(\)]{1,20}$/;
-        if (!telRegex.test(tel.value)) {
-          tel.classList.add("is-invalid");
-          tel.classList.remove("is-valid");
-        } else {
-          tel.classList.add("is-valid");
-          tel.classList.remove("is-invalid");
-        }
-
-        // Street address validation
-        if (
-          streetAddress.value.length < 2 ||
-          streetAddress.value.length > 50 ||
-          streetAddress.value.length === 0
-        ) {
-          streetAddress.classList.add("is-invalid");
-          streetAddress.classList.remove("is-valid");
-        } else {
-          streetAddress.classList.add("is-valid");
-          streetAddress.classList.remove("is-invalid");
-        }
-
-        // Postal code validation
-        const postalCodeRegex = /^[0-9]{5}$/;
-        if (!postalCodeRegex.test(postalCode.value)) {
-          postalCode.classList.add("is-invalid");
-          postalCode.classList.remove("is-valid");
-        } else {
-          postalCode.classList.add("is-valid");
-          postalCode.classList.remove("is-invalid");
-        }
-
-        // City validation
-        if (city.value.length < 2 || city.value.length > 20) {
-          city.classList.add("is-invalid");
-          city.classList.remove("is-valid");
-        } else {
-          city.classList.add("is-valid");
-          city.classList.remove("is-invalid");
-        }
-      });
-    </script>
-    -->
+    <script src="scripts/order-form.js"></script>
   </body>
 </html>
