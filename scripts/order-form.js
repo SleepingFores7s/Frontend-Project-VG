@@ -109,13 +109,14 @@ function formValidation() {
   });
 }
 
-const savedProductId = localStorage.getItem("selectedProductId");
+/*const savedProductId = localStorage.getItem("selectedProductId");
 if (savedProductId) {
   document.getElementById("product").value = savedProductId;
-}
+}*/
 const savedProductName = localStorage.getItem("selectedProductName");
-if (savedProductName) {
-  document.getElementById("product-name").textContent = savedProductName;
+const productNameElement = document.getElementById("product-name");
+if (savedProductName && productNameElement) {
+  productNameElement.value = savedProductName;
 }
 
 formValidation();
