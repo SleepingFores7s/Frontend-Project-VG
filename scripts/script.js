@@ -1,6 +1,8 @@
-fetch("https://fakestoreapi.com/products")
+fetch('https://dummyjson.com/products?limit=21')
   .then((response) => response.json())
-  .then((products) => {
+  .then((data) => {
+    
+    const products = data.products;
     console.log(products);
     const container = document.getElementById("products");
 
@@ -9,10 +11,11 @@ fetch("https://fakestoreapi.com/products")
       div.className = "col";
       div.innerHTML = `
        <div class="card h-100 text-center bg-light">
-       <img src="${product.image}" class="card-img-top p-3 product-img"  style="height: 200px; object-fit: contain;
+       <img src="${product.images[0]}" class="card-img-top p-3 product-img"  style="height: 200px; object-fit: contain;
        transition: transform 0.3s;">
        <div class="card-body d-flex flex-column"> 
        <h5 class ="card-title"> ${product.title}</h5>
+       <p class = "card-description"> ${product.description}</p>
     
         <p class ="card-text mt-auto">${product.price} USD</p>
         <button class="btn btn-primary order-button">Order</button>
@@ -42,10 +45,12 @@ fetch("https://fakestoreapi.com/products")
       });
 
       orderButton.addEventListener("click", () => {
-        window.location.href = `HTML/order-form.html`;
+        
         //Pass the product id to the order form page
         localStorage.setItem("selectedProductId", product.id);
         localStorage.setItem("selectedProductName", product.title);
+
+        window.location.href = `HTML/order-form.html`;
       });
 
       container.appendChild(div);
@@ -54,10 +59,6 @@ fetch("https://fakestoreapi.com/products")
   .catch((error) => {
     console.error("Something went wrong:", error);
   });
-
-function orderProduct(id) {
-  alert(`You ordered product with id: ${id}`);
-}
 
 function formValidation() {
   const form = document.querySelector("form");
@@ -145,14 +146,23 @@ function formValidation() {
     }
 
     if (isValid) {
-      alert("Your order has been placed successfully! "
-      + "\nProduct: " + savedProductName
-      + "\nName: " + name.value
-      + "\nEmail: " + email.value
-      + "\nTelephone: " + tel.value 
-      + "\nStreet Address: " + streetAddress.value
-      + "\nPostal Code: " + postalCode.value
-      + "\nCity: " + city.value);
+      alert(
+        "Your order has been placed successfully! " +
+          "\nProduct: " +
+          savedProductName +
+          "\nName: " +
+          name.value +
+          "\nEmail: " +
+          email.value +
+          "\nTelephone: " +
+          tel.value +
+          "\nStreet Address: " +
+          streetAddress.value +
+          "\nPostal Code: " +
+          postalCode.value +
+          "\nCity: " +
+          city.value,
+      );
       form.reset();
     }
     if (!isValid) {
@@ -161,10 +171,10 @@ function formValidation() {
   });
 }
 
-const savedProductId = localStorage.getItem("selectedProductId");
+/*const savedProductId = localStorage.getItem("selectedProductId");
 if (savedProductId) {
   document.getElementById("product-id").value = savedProductId;
-}
+}*/
 const savedProductName = localStorage.getItem("selectedProductName");
 if (savedProductName) {
   document.getElementById("product-name").textContent = savedProductName;
