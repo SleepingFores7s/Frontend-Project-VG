@@ -2,44 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!--Base Start-->
     <base href="" id="base-path" />
-    <script>
-      const root = window.location.origin;
-      let path = "/";
-      if(window.location.hostname.includes("github.io")) {
-        path = "/Frontend-Projektarbete-G-niva/";
-      }
-      document.getElementById("base-path").setAttribute("href", root + path);
-    </script>
+    <script src="scripts/base_config.js"></script>
+    <!--Base End-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/bootstrap.css" />
 
-    <!-- Start: Bottom Menu Script/Style-->
-    <link rel="stylesheet" href="styles/menu-bar-bottom-style.css" >
-    <script defer src="scripts/menu-bar-bottom.js"></script>
-    <!-- End: Bottom Menu Script/Style-->
+    <!-- Header Menu Dropdown Menu Start -->
+    <script defer src="scripts/create_header.js"></script>
+    <link rel="stylesheet" href="styles/side_menu_style.css" />
+    <!-- Header Menu Dropdown Menu End -->
 
     <title>Waveshop</title>
   </head>
 
-  <body>
-    <div class="card w-auto bg-info card-border-none">
+  <body class="bg-info">
+    <div class="card w-auto bg-info border-0">
       <div class="card-body">
-        <img
-          src="images/waveshop_logo.svg"
-          alt="Waveshop Logo"
-        >
-
         <h1 class="card-title text-center">Waveshop</h1>
         <h2 class="card-subtitle text-center">Welcome to Waveshop</h2>
-        <br>
+        <br />
 
         <div class="container mt-4 card-border-none">
           <div id="products" class="row row-cols-1 row-cols-md-3 g-4"></div>
         </div>
       </div>
     </div>
-
-    <script src="scripts/script.js"></script>
   </body>
 </html>
