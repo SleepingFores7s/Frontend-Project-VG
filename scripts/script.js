@@ -47,10 +47,21 @@ fetch('https://dummyjson.com/products?limit=21')
       orderButton.addEventListener("click", () => {
         
         //Pass the product id to the order form page
-        localStorage.setItem("selectedProductId", product.id);
-        localStorage.setItem("selectedProductName", product.title);
+        //localStorage.setItem("selectedProductId", product.id);
+        //localStorage.setItem("selectedProductName", product.title);
 
-        window.location.href = `html/order-form.html`;
+        //Gets local storage, if null use empty array
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        //places newly chosen id into array
+        cart.push(product.id);
+        //Places newly updated array into storage
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+
+console.log(cart);
+
+        //Changes current page to chosen path
+        //window.location.href = `html/order-form.html`;
       });
 
       container.appendChild(div);
