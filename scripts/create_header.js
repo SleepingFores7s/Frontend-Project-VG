@@ -11,14 +11,19 @@ document.addEventListener("DOMContentLoaded", () => {
   row.className = "row";
 
   //Logo Column
+const logoLink = document.createElement("a");
+logoLink.href = "index.html";
+
   const logoColumn = document.createElement("div");
   logoColumn.className = "col-1";
 
   const logo = document.createElement("img");
   logo.src = "images/waveshop_logo.svg";
   logo.alt = "Waveshop Logo";
+  logo.style.cursor = "pointer";
 
-  logoColumn.appendChild(logo);
+  logoLink.appendChild(logo)
+  logoColumn.appendChild(logoLink);
 
   //Spacer column
   const spacerColumn = document.createElement("div");
@@ -48,8 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
   //Create Side Menu----------------------------
   const sideMenuItems = [
     { name: "Start Page", url: "index.html" },
+    { name: "Shopping Cart", url: "html/shopping-cart.html"},
    // { name: "Order", url: "html/order-form.html" },
     { name: "About Us", url: "html/about-us.html" },
+    
   ];
 
   const nav = document.createElement("nav");
