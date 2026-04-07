@@ -1,0 +1,30 @@
+.shopping_cart_container {
+    width: auto;
+    height: auto;
+    
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+#products {
+    font-size: 50px;
+    justify-content: center;
+}
+
+#products .row {
+    max-height: 150px;
+    margin: 10px;
+    background-color: bisque;
+    border-radius: 50px;
+}
+
+.quantity_button {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
