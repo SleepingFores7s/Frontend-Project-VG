@@ -1,7 +1,6 @@
-fetch('https://dummyjson.com/products?limit=21')
+fetch("https://dummyjson.com/products?limit=21")
   .then((response) => response.json())
   .then((data) => {
-    
     const products = data.products;
     console.log(products);
     const container = document.getElementById("products");
@@ -45,7 +44,6 @@ fetch('https://dummyjson.com/products?limit=21')
       });
 
       orderButton.addEventListener("click", () => {
-        
         //Pass the product id to the order form page
         //localStorage.setItem("selectedProductId", product.id);
         //localStorage.setItem("selectedProductName", product.title);
@@ -57,8 +55,7 @@ fetch('https://dummyjson.com/products?limit=21')
         //Places newly updated array into storage
         localStorage.setItem("cart", JSON.stringify(cart));
 
-
-console.log(cart);
+        console.log(cart);
 
         //Changes current page to chosen path
         //window.location.href = `html/order-form.html`;
@@ -70,5 +67,3 @@ console.log(cart);
   .catch((error) => {
     console.error("Something went wrong:", error);
   });
-
-
