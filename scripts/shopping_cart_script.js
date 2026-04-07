@@ -15,17 +15,19 @@ async function updateShoppingCart() {
       const container = document.getElementById("products");
 
       const div = document.createElement("div");
-      div.className = "row";
       div.innerHTML = `
       <div class="row align-items-center">
-        <div class="col-3">
+        <div class="col-2">
           <img src="${productRetrieved.images[0]}" style="height: 100px; object-fit: contain;">
         </div>
-        <div class="col-6">
+        <div class="col-5">
           <h5 class =""> ${productRetrieved.title}</h5>
         </div>
         <div class="col-3 text-end">
           <h5 class ="card-text mt-auto">${productRetrieved.price} USD</h5>
+        </div>
+        <div class="col-2">
+        <h5> nr: <a id=amount_of_product></a> </h5> 
           <div class="d-flex justify-content-end gap-2 mt-2">
             <button class="quantity_button">-</button>
             <button class="quantity_button">+</button>
