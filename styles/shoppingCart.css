@@ -12,10 +12,17 @@
 }
 
 #products .row {
+    min-width: 700px;
     max-height: 150px;
     margin: 10px;
     background-color: bisque;
-    border-radius: 50px;
+    border-radius: 25px;
+    padding: 12px 0px;
+}
+
+#products img {
+    background-color: aliceblue;
+    border-radius: 25px;
 }
 
 .quantity_button {
