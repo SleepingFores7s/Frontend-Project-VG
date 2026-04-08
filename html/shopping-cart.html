@@ -15,8 +15,8 @@
     <!-- Header Menu Dropdown Menu End -->
 
     <!-- Shopping Cart CSS/JS -->
-     <link rel="stylesheet" href="/styles/shoppingCart.css">
-     <script type="module" defer src="/scripts/shopping_cart_script.js"></script>
+    <link rel="stylesheet" href="/styles/shoppingCart.css" />
+    <script type="module" defer src="/scripts/shopping_cart_script.js"></script>
 
     <title>Waveshop</title>
   </head>
@@ -26,9 +26,15 @@
       <div class="">
         <h1 class="text-center">Shopping Cart</h1>
         <br />
-
+        <div class="row-12 justify-content-center d-flex gap-3 mb-3">
+            <button class="buy_cart_button" >BUY</button>
+            <button class="empty_cart_button" >Empty Cart</button>
+        </div>
+        <div class="total_cost_div text-center ">
+            <span class="total_cost_text">Total cost: <a id="total_cost_text_price"></a> </span>
+        </div>
         <div class="shopping_cart_container">
-          <div id="products" class="row-12 w-50"></div>
+          <div id="products" class="row-12 w-50 text-center"></div>
         </div>
       </div>
     </div>
