@@ -32,3 +32,13 @@ export function removeFromCart(id) {
   delete cart[id];
   saveCart(cart);
 }
+
+export function clearOutCart() {
+  window.localStorage.clear("cart");
+}
+
+export async function getSingleProduct(id) {
+  const fetchedData = await fetch(`https://dummyjson.com/products/${id}`);
+  const jsonData = fetchedData.json();
+  return jsonData;
+}
