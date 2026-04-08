@@ -1,22 +1,32 @@
+import {
+  addToCart,
+  decreaseFromCart,
+  loadCart,
+  removeFromCart,
+} from "./local_data_handling.js";
+
 document.addEventListener("DOMContentLoaded", updateShoppingCart);
 
 async function updateShoppingCart() {
-  const shoppingCartList = JSON.parse(localStorage.getItem("cart")) || [];
+  const shoppingCartList = loadCart();
 
-  if (shoppingCartList.length === 0) {
+  const container = document.getElementById("products");
+container.innerHTML = "";
+
+  if (Object.keys(shoppingCartList).length === 0) {
     document.getElementById("products").innerText =
       "Your Shopping Cart is empty";
   } else {
     console.log(shoppingCartList);
     console.log(JSON.parse(localStorage.getItem("cart")));
-    for (const product of shoppingCartList) {
-      const productRetrieved = await getSingleProduct(product);
+    for (const id in shoppingCartList) {
+      const productRetrieved = await getSingleProduct(id);
 
-      const container = document.getElementById("products");
+      
 
       const div = document.createElement("div");
       div.innerHTML = `
-      <div class="row align-items-center">
+      <div class="row align-items-center" data-product-id=${productRetrieved.id}>
         <div class="col-2">
           <img src="${productRetrieved.images[0]}" style="height: 100px; object-fit: contain;">
         </div>
@@ -27,10 +37,11 @@ async function updateShoppingCart() {
           <h5 class ="card-text mt-auto">${productRetrieved.price} USD</h5>
         </div>
         <div class="col-2">
-        <h5> nr: <a id=amount_of_product></a> </h5> 
-          <div class="d-flex justify-content-end gap-2 mt-2">
-            <button class="quantity_button">-</button>
-            <button class="quantity_button">+</button>
+        <h5> nr: <a id=amount_of_product>${shoppingCartList[id].amount}</a> </h5> 
+          <div class="d-flex justify-content-end gap-1 mt-2">
+            <button class="minusButton quantity_button">-</button>
+            <button class="plusButton quantity_button">+</button>
+            <button style="background-color: red;" class="deleteButton quantity_button">✕</button>
           </div>
         </div>
       </div>
@@ -42,10 +53,33 @@ async function updateShoppingCart() {
   }
 }
 
-async function getSingleProduct(id_number) {
-  const fetchedData = await fetch(
-    `https://dummyjson.com/products/${id_number}`,
-  );
+//MINUS BUTTON
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("minusButton")) {
+    const id = e.target.closest("[data-product-id]").dataset.productId;
+    decreaseFromCart(id);
+    updateShoppingCart();
+  }
+});
+//PLUS BUTTON
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("plusButton")) {
+    const id = e.target.closest("[data-product-id]").dataset.productId;
+    addToCart(id);
+    updateShoppingCart();
+  }
+});
+//DELETE BUTTON
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("deleteButton")) {
+    const id = e.target.closest("[data-product-id]").dataset.productId;
+    removeFromCart(id);
+    updateShoppingCart();
+  }
+});
+
+async function getSingleProduct(id) {
+  const fetchedData = await fetch(`https://dummyjson.com/products/${id}`);
   const jsonData = fetchedData.json();
   return jsonData;
 }

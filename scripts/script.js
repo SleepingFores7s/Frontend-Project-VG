@@ -1,3 +1,5 @@
+import { addToCart } from "./local_data_handling.js";
+
 fetch("https://dummyjson.com/products?limit=21")
   .then((response) => response.json())
   .then((data) => {
@@ -9,18 +11,16 @@ fetch("https://dummyjson.com/products?limit=21")
       const div = document.createElement("div");
       div.className = "col";
       div.innerHTML = `
-       <div class="card h-100 text-center bg-light">
-       <img src="${product.images[0]}" class="card-img-top p-3 product-img"  style="height: 200px; object-fit: contain;
-       transition: transform 0.3s;">
-       <div class="card-body d-flex flex-column"> 
-       <h5 class ="card-title"> ${product.title}</h5>
-       <p class = "card-description"> ${product.description}</p>
-    
-        <p class ="card-text mt-auto">${product.price} USD</p>
-        <button class="btn btn-primary order-button">Order</button>
+      <div data-product-id="${product.id}" class="card h-100 text-center bg-light">
+        <img src="${product.images[0]}" class="card-img-top p-3 product-img"  style="height: 200px; object-fit: contain;
+        transition: transform 0.3s;">
+        <div class="card-body d-flex flex-column"> 
+          <h5 class ="card-title"> ${product.title}</h5>
+          <p class = "card-description"> ${product.description}</p>
+          <p class ="card-text mt-auto">${product.price} USD</p>
+          <button class="btn btn-primary order-button">Order</button>
         </div>
-        </div>
-
+      </div>
       `;
 
       // image hover effect
@@ -43,22 +43,9 @@ fetch("https://dummyjson.com/products?limit=21")
         orderButton.style.transform = "scale(1)";
       });
 
-      orderButton.addEventListener("click", () => {
-        //Pass the product id to the order form page
-        //localStorage.setItem("selectedProductId", product.id);
-        //localStorage.setItem("selectedProductName", product.title);
-
-        //Gets local storage, if null use empty array
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        //places newly chosen id into array
-        cart.push(product.id);
-        //Places newly updated array into storage
-        localStorage.setItem("cart", JSON.stringify(cart));
-
-        console.log(cart);
-
-        //Changes current page to chosen path
-        //window.location.href = `html/order-form.html`;
+      orderButton.addEventListener("click", e => {
+        const id = e.target.closest("[data-product-id]").dataset.productId;
+        addToCart(id);
       });
 
       container.appendChild(div);

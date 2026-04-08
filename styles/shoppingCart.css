@@ -1,37 +1,42 @@
 .shopping_cart_container {
-    width: auto;
-    height: auto;
-    
-    margin-left: 150px;
-    margin-right: 150px;
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
 }
 
 #products {
-    font-size: 50px;
-    justify-content: center;
+  font-size: 50px;
+  justify-content: center;
 }
 
 #products .row {
-    min-width: 700px;
-    max-height: 150px;
-    margin: 10px;
-    background-color: bisque;
-    border-radius: 25px;
-    padding: 12px 0px;
+  display: flex;
+
+  min-width: 700px;
+  max-height: 150px;
+  margin: 10px;
+  background-color: bisque;
+  border-radius: 25px;
+  padding: 12px 0px;
 }
 
 #products img {
-    background-color: aliceblue;
-    border-radius: 25px;
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  background-color: aliceblue;
+  border-radius: 25px;
+  object-fit: cover;
 }
 
 .quantity_button {
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    font-size: 30px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
