@@ -4,18 +4,15 @@
     <meta charset="UTF-8" />
     <!--Base Start-->
     <base href="" id="base-path" />
-
-    
-    <script src="../scripts/base_config.js"></script>
-
+    <script src="/scripts/base_config.js"></script>
     <!--Base End-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/bootstrap.css" />
-
+    <link rel="stylesheet" href="/styles/bootstrap.css" />
     <!-- Header Menu Dropdown Menu Start -->
-    <script defer src="scripts/create_header.js"></script>
-    <link rel="stylesheet" href="styles/side_menu_style.css" />
+    <script defer src="/scripts/create_header.js"></script>
+    <link rel="stylesheet" href="/styles/side_menu_style.css" />
     <!-- Header Menu Dropdown Menu End -->
+     <script defer type="module" src="/scripts/order-form.js"></script>
 
     <title>Order Form</title>
   </head>
@@ -39,22 +36,7 @@ iii.  Ort: Min 2 tecken och Max 20 tecken
 
     <div class="container p-3">
       <form novalidate>
-        <!-- Product -->
-        <!-- Produkt: Fylls i automatiskt med det valda objektet från katalogen. -->
-      <!--   <p id="product-name" class="ms-3"></p>-->
-        <div class="form-floating m-3">
-          <input
-            type="text"
-            id="product-name"
-            class="form-control"
-            placeholder="item"
-            required
-            readonly
-          />
-          <label for="product-name" class="form-label">Product name</label>
-          <div class="invalid-feedback">Invalid</div>
-          <div class="valid-feedback">Valid</div>
-        </div>
+        
 
         <!-- Name -->
         <!--Namnet är minst 2 tecken och max 50 tecken -->
@@ -145,12 +127,23 @@ iii.  Ort: Min 2 tecken och Max 20 tecken
           <div class="invalid-feedback">Invalid</div>
           <div class="valid-feedback">Valid</div>
         </div>
+        <!-- Product list text -->
+        <div class="form-floating m-3">
+          <textarea
+            id="product_list"
+            class="form-control"
+            placeholder="Products"
+            style="height: 120px; resize: vertical"
+            readonly
+          ></textarea>
+          <label for="product_list">Product List</label>
+        </div>
 
         <div class="m-3">
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </form>
     </div>
-    <script src="scripts/order-form.js"></script>
+    
   </body>
 </html>

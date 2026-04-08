@@ -3,6 +3,7 @@ import {
   decreaseFromCart,
   loadCart,
   removeFromCart,
+  getSingleProduct,
 } from "./local_data_handling.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,7 +23,7 @@ async function updateShoppingCart() {
     console.log(shoppingCartList);
     console.log(JSON.parse(localStorage.getItem("cart")));
     for (const id in shoppingCartList) {
-      const productRetrieved = await getSingleProduct(id);
+      const productRetrieved = await getSingleProduct(id); ///---------------------
 
       const div = document.createElement("div");
       div.innerHTML = `
@@ -58,13 +59,13 @@ document.addEventListener("click", (e) => {
 
   switch (true) {
     //BUY BUTTON
-    case target.classList.contains("buy_button"):
-      localStorage.removeItem("cart");
-      
+    case target.classList.contains("buy_cart_button"):
       //Make call to form, send id/name of all products to form
-      
+      if (Object.keys(loadCart()).length === 0) {
+        break;
+      }
+      window.location.href = "html/order-form.html";
       break;
-
     //EMPTY CART BUTTON
     case target.classList.contains("empty_cart_button"):
       localStorage.removeItem("cart");
@@ -105,18 +106,12 @@ document.addEventListener("click", (e) => {
   }
 });
 
-async function getSingleProduct(id) {
-  const fetchedData = await fetch(`https://dummyjson.com/products/${id}`);
-  const jsonData = fetchedData.json();
-  return jsonData;
-}
-
 async function updatePricetag() {
   const shoppingCartList = loadCart();
   let totalCost = 0;
 
   for (const id in shoppingCartList) {
-    const product = await getSingleProduct(id);
+    const product = await getSingleProduct(id); //-----------------------
     totalCost += product.price * shoppingCartList[id].amount;
   }
 

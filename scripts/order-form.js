@@ -1,3 +1,5 @@
+import { loadCart, getSingleProduct, clearOutCart } from "./local_data_handling.js";
+
 function formValidation() {
   console.log("order-form.js loaded");
   const form = document.querySelector("form");
@@ -11,6 +13,7 @@ function formValidation() {
     const streetAddress = document.querySelector("#street-address");
     const postalCode = document.querySelector("#postal-code");
     const city = document.querySelector("#city");
+    const productList = document.querySelector("#product_list");
 
     let isValid = true; // Assume form is valid until proven otherwise
 
@@ -87,8 +90,6 @@ function formValidation() {
     if (isValid) {
       alert(
         "Your order has been placed successfully! " +
-          "\nProduct: " +
-          savedProductName +
           "\nName: " +
           name.value +
           "\nEmail: " +
@@ -100,9 +101,12 @@ function formValidation() {
           "\nPostal Code: " +
           postalCode.value +
           "\nCity: " +
-          city.value,
+          city.value +
+          "\n\nBought Products:\n" +
+          productList.value,
       );
-      form.reset();
+      clearOutCart();
+      window.location.href = "html/shopping-cart.html"
     }
     if (!isValid) {
       alert("Please correct the errors in the form before submitting.");
@@ -110,13 +114,21 @@ function formValidation() {
   });
 }
 
-/*const savedProductId = localStorage.getItem("selectedProductId");
-if (savedProductId) {
-  document.getElementById("product").value = savedProductId;
-}*/
-const savedProductName = localStorage.getItem("selectedProductName") || "Unknown Product";
-if (savedProductName) {
-  document.getElementById("product-name").value = savedProductName;
-}
+//Product List
+document.addEventListener("DOMContentLoaded", async () => {
+  const cart = loadCart();
+  const productListBox = document.getElementById("product_list");
+
+  let output = "";
+
+  for (const id in cart) {
+    const product = await getSingleProduct(id); // WAIT for API
+    const amount = cart[id].amount;
+
+    output += `${amount} × ${product.title}\n`;
+  }
+
+  productListBox.value = output.trim();
+});
 
 formValidation();
