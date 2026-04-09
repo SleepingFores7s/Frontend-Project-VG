@@ -21,7 +21,7 @@ logoLink.href = "index.html";
   logoColumn.className = "col-1";
 
   const logo = document.createElement("img");
-  logo.src = base + "images/waveshop_logo.svg";
+  logo.src = "../images/waveshop_logo.svg";
   logo.alt = "Waveshop Logo";
   logo.style.cursor = "pointer";
 
