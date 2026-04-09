@@ -109,7 +109,7 @@ function formValidation() {
           productList.value,
       );
       clearOutCart();
-      window.location.href = base + "html/shopping-cart.html";
+      window.location.href = "shopping-cart.html";
     }
     if (!isValid) {
       alert("Please correct the errors in the form before submitting.");

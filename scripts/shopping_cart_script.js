@@ -65,7 +65,7 @@ document.addEventListener("click", (e) => {
     case target.classList.contains("buy_cart_button"):
       //Make call to form, send id/name of all products to form
       if (Object.keys(loadCart()).length === 0) break;
-      window.location.href = base + "html/order-form.html";
+      window.location.href = "order-form.html";
       break;
     //EMPTY CART BUTTON
     case target.classList.contains("empty_cart_button"):
