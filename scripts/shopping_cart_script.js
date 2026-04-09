@@ -6,6 +6,9 @@ import {
   getSingleProduct,
 } from "./local_data_handling.js";
 
+//Checks what depth current page is at
+const base = window.location.pathname.includes("/html/") ? "../" : "";
+
 document.addEventListener("DOMContentLoaded", () => {
   updateShoppingCart();
   updatePricetag();
@@ -61,10 +64,8 @@ document.addEventListener("click", (e) => {
     //BUY BUTTON
     case target.classList.contains("buy_cart_button"):
       //Make call to form, send id/name of all products to form
-      if (Object.keys(loadCart()).length === 0) {
-        break;
-      }
-      window.location.href = "../order-form.html";
+      if (Object.keys(loadCart()).length === 0) break;
+      window.location.href = base + "html/order-form.html";
       break;
     //EMPTY CART BUTTON
     case target.classList.contains("empty_cart_button"):
