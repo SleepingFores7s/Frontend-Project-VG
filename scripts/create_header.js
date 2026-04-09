@@ -15,13 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Logo Column
 const logoLink = document.createElement("a");
-logoLink.href = "index.html";
+logoLink.href = base + "index.html";
 
   const logoColumn = document.createElement("div");
   logoColumn.className = "col-1";
 
   const logo = document.createElement("img");
-  logo.src = "../images/waveshop_logo.svg";
+  logo.src = base + "images/waveshop_logo.svg";
   logo.alt = "Waveshop Logo";
   logo.style.cursor = "pointer";
 
