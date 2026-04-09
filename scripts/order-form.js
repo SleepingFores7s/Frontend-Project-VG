@@ -1,5 +1,8 @@
 import { loadCart, getSingleProduct, clearOutCart } from "./local_data_handling.js";
 
+//Checks what depth current page is at
+const base = window.location.pathname.includes("/html/") ? "../" : "";
+
 function formValidation() {
   console.log("order-form.js loaded");
   const form = document.querySelector("form");
@@ -106,7 +109,7 @@ function formValidation() {
           productList.value,
       );
       clearOutCart();
-      window.location.href = "../shopping-cart.html"
+      window.location.href = base + "html/shopping-cart.html";
     }
     if (!isValid) {
       alert("Please correct the errors in the form before submitting.");
