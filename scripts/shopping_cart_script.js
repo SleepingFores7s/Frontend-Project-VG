@@ -64,7 +64,7 @@ document.addEventListener("click", (e) => {
       if (Object.keys(loadCart()).length === 0) {
         break;
       }
-      window.location.href = "html/order-form.html";
+      window.location.href = "../order-form.html";
       break;
     //EMPTY CART BUTTON
     case target.classList.contains("empty_cart_button"):

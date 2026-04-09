@@ -18,7 +18,7 @@ logoLink.href = "index.html";
   logoColumn.className = "col-1";
 
   const logo = document.createElement("img");
-  logo.src = "images/waveshop_logo.svg";
+  logo.src = "../images/waveshop_logo.svg";
   logo.alt = "Waveshop Logo";
   logo.style.cursor = "pointer";
 
@@ -53,9 +53,9 @@ logoLink.href = "index.html";
   //Create Side Menu----------------------------
   const sideMenuItems = [
     { name: "Start Page", url: "index.html" },
-    { name: "Shopping Cart", url: "html/shopping-cart.html"},
+    { name: "Shopping Cart", url: "../shopping-cart.html"},
   //  { name: "Order", url: "html/order-form.html" },
-    { name: "About Us", url: "html/about-us.html" },
+    { name: "About Us", url: "../about-us.html" },
     
   ];
 
