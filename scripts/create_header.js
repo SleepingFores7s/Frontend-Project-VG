@@ -1,3 +1,6 @@
+//Checks what depth the current page is
+const base = window.location.pathname.includes("/html/") ? "../" : "";
+
 //Creates Header Area--------------------------------
 document.addEventListener("DOMContentLoaded", () => {
   //Create Outer Card
@@ -18,7 +21,7 @@ logoLink.href = "index.html";
   logoColumn.className = "col-1";
 
   const logo = document.createElement("img");
-  logo.src = "../images/waveshop_logo.svg";
+  logo.src = base + "images/waveshop_logo.svg";
   logo.alt = "Waveshop Logo";
   logo.style.cursor = "pointer";
 
@@ -52,10 +55,10 @@ logoLink.href = "index.html";
 
   //Create Side Menu----------------------------
   const sideMenuItems = [
-    { name: "Start Page", url: "index.html" },
-    { name: "Shopping Cart", url: "html/shopping-cart.html"},
-  //  { name: "Order", url: "html/order-form.html" },
-    { name: "About Us", url: "html/about-us.html" },
+    { name: "Start Page", url: base + "index.html" },
+    { name: "Shopping Cart", url: base + "html/shopping-cart.html"},
+  //  { name: "Order", url: base + "html/order-form.html" },
+    { name: "About Us", url: base + "html/about-us.html" },
     
   ];
 
